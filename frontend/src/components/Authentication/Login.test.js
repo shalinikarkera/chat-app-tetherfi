@@ -8,7 +8,7 @@ jest.mock('axios');
 
 describe('Login Component', () => {
   beforeEach(() => {
-    axios.post.mockResolvedValueOnce({ data: { /* Mock user data */ } });
+    axios.post.mockResolvedValueOnce({ data: "test" });
   });
 
   test('fills email and password fields and submits the form', async () => {
@@ -31,7 +31,6 @@ describe('Login Component', () => {
   });
 
   test('shows error message when login fails', async () => {
-    // Mock a failed login attempt
     axios.post.mockRejectedValueOnce({ response: { data: { message: 'Invalid credentials' } } });
 
     render(<Login />);
@@ -39,7 +38,6 @@ describe('Login Component', () => {
     const loginButton = screen.getByText('Login');
     fireEvent.click(loginButton);
 
-    // Wait for the error message to be displayed
     const errorMessage = await screen.findByText('Error Occured!');
     expect(errorMessage).toBeInTheDocument();
   });

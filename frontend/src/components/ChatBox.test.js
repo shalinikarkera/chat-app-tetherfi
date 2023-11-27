@@ -9,7 +9,7 @@ jest.mock('../Context/ChatProvider', () => ({
 
 describe('Chatbox Component', () => {
   test('renders SingleChat when selectedChat is truthy', () => {
-    ChatState.mockReturnValue({ selectedChat: { /* mock selected chat data */ } });
+    ChatState.mockReturnValue({ selectedChat:  "hello"  });
 
     const { getByTestId } = render(<ChatBox />);
     const singleChatComponent = getByTestId('single-chat'); 
@@ -17,7 +17,6 @@ describe('Chatbox Component', () => {
   });
 
   test('does not render SingleChat when selectedChat is falsy', () => {
-    // Mock selectedChat being falsy
     ChatState.mockReturnValue({ selectedChat: null });
 
     const { queryByTestId } = render(<ChatBox />);

@@ -1,17 +1,14 @@
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
-import axios from 'axios'; // You might want to mock axios calls
+import axios from 'axios';
 
-// Import the component to be tested
 import Signup from './Signup';
 
-// Mock the axios post function
 jest.mock('axios');
 
 describe('Signup Component', () => {
   beforeEach(() => {
-    // Mock any axios response that you might expect in your tests
-    axios.post.mockResolvedValueOnce({ data: { /* Mock user data */ } });
+    axios.post.mockResolvedValueOnce({ data: "test" });
   });
 
   test('fills form fields and submits the form', async () => {
@@ -41,7 +38,7 @@ describe('Signup Component', () => {
         name: 'Test User',
         email: 'test@example.com',
         password: 'password',
-        pic: expect.any(String), // Mocked image URL
+        pic: expect.any(String),
       });
     });
   });

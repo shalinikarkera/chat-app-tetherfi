@@ -10,9 +10,9 @@ jest.mock('../Context/ChatProvider', () => ({
 describe('SingleChat Component', () => {
   beforeEach(() => {
     ChatState.mockReturnValue({
-      selectedChat: { _id: '1', /* Mock selected chat data */ },
+      selectedChat: { _id: '1' },
       setSelectedChat: jest.fn(),
-      user: { /* Mock user data */ },
+      user: { test },
       notification: [],
       setNotification: jest.fn(),
     });
@@ -20,12 +20,10 @@ describe('SingleChat Component', () => {
 
   test('renders chat messages and input', async () => {
     render(<SingleChat fetchAgain={false} setFetchAgain={jest.fn()} />);
-    const chatMessages = screen.getByTestId('chat-messages'); 
+    const chatMessages = screen.getByTestId('chat-messages');
     expect(chatMessages).toBeInTheDocument();
 
-    const messageInput = screen.getByPlaceholderText('Enter a message..'); 
+    const messageInput = screen.getByPlaceholderText('Enter a message..');
     expect(messageInput).toBeInTheDocument();
   });
-
-  
 });

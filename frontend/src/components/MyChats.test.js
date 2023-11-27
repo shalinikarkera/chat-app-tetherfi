@@ -16,10 +16,10 @@ describe('MyChats Component', () => {
     ChatState.mockReturnValue({
       selectedChat: null,
       setSelectedChat: jest.fn(),
-      user: { /* Mock user data */ },
+      user: "test",
       chats: [
-        { _id: '1', users: test, latestMessage: { /* Mock message data */ } },
-        { _id: '2', isGroupChat: true, chatName: 'Group Chat', latestMessage: { /* Mock message data */ } },
+        { _id: '1', users: test, latestMessage:"hello"},
+        { _id: '2', isGroupChat: true, chatName: 'Group Chat', latestMessage: "hi" },
       ],
       setChats: jest.fn(),
     });
